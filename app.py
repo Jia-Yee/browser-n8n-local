@@ -166,7 +166,7 @@ def get_llm(ai_provider: str):
             model=os.environ.get("GOOGLE_MODEL_ID", "gemini-1.5-pro")
         )
     elif ai_provider == "ollama":
-        return ChatOllama(model=os.environ.get("OLLAMA_MODEL_ID", "llama3"))
+        return ChatOllama(base_url=os.environ.get("OLLAMA_API_BASE", "http://localhost:11434"), model=os.environ.get("OLLAMA_MODEL_ID", "qwen2.5"))
     elif ai_provider == "azure":
         return AzureChatOpenAI(
             azure_deployment=os.environ.get("AZURE_DEPLOYMENT_NAME"),
